@@ -12,6 +12,17 @@ var resultsPlaceholder = $('#results'),
 
 var fetchTracks = function (albumId, callback) {
     // write your AJAX request here
+    $.ajax({
+      url: "https://api.spotify.com/v1/albums/",
+      data: {
+        format: "json",
+        // q: "GET", // what is this q for in the homework
+        type: 'id'
+      },
+      success: function (response) {
+          addAlbumsToPage(response.albums);
+      }
+    });
 };
 
 var addAlbumsToPage = function (albums) {
