@@ -13,10 +13,10 @@ var resultsPlaceholder = $('#results'),
 var fetchTracks = function (albumId, callback) {
     // write your AJAX request here
     $.ajax({
-      url: "https://api.spotify.com/v1/albums/",
+      url: "https://api.spotify.com/v1/albums/" + albumId,
       data: {
         format: "json",
-        // q: "GET", // what is this q for in the homework
+        q: query, // what is this q for in the homework
         type: 'id'
       },
       success: function (response) {
@@ -41,9 +41,9 @@ var searchAlbums = function (query) {
             type: 'album'
         },
         success: function (response) {
-            // console.log(response);
-            // console.log(response.albums);
-            // console.log(response.albums.items);
+            console.log(response);
+            console.log(response.albums);
+            console.log(response.albums.items);
             // console.log(response.albums.items[0]);
             // console.log(response.albums.items[0].images);
             // console.log(response.albums.items[0].images[0].url);
